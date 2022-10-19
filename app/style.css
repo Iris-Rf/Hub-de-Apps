@@ -36,3 +36,9 @@ button {
   float: right;
 }
 
+figure {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  /* flex-wrap: wrap; */
+}

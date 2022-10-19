@@ -3,7 +3,7 @@ export const pokeapi = async () => {
   //   console.log(name);
   const app = document.querySelector("#app");
   app.innerHTML = `
-      <p class="saludo">Bienvenid@ ${name} A POKEAPI</p>
+      <p class="saludo">POKEAPI</p>
       `;
       const pokemons = await getPokemons();
 };
