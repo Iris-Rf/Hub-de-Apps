@@ -1,0 +1,19 @@
+{
+  "name": "hub_de_apps",
+  "version": "0.0.0",
+  "description": "Games",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "keywords": [
+    "json-server",
+    "Hub de Apps",
+    "javascipt"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.0"
+  }
+}
