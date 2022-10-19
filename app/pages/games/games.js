@@ -1,4 +1,4 @@
-import { getUser } from "../utils/getUser";
+import { getUser } from "../../utils/getUser";
 
 const name = getUser();
 console.log(name);
