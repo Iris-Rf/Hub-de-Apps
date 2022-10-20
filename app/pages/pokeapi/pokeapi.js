@@ -5,18 +5,19 @@ export const pokeapi = async () => {
   const botonBuscador = document.querySelector("#btnInfo");
   botonBuscador.addEventListener("click", filterPokemons);
   const inputPokemon = document.querySelector("#inputPokemon");
-  inputPokemon.addEventListener("keyup", filterPokemons);
   filterPokemons();
   getPokemons();
 };
 
 export const divPokemon = () => {
   return `
+  <div>
+    <input type="text" id="inputPokemon" class="inputPokemon">
+    <button class="btnInfo" id="btnInfo">BUSCAR</button>
+    <ul id="resultado">
+    </ul>
+    </div>
   <div class="containerPokemon" id="containerPokemon"></div>
-  <input type="text" id="inputPokemon" class="inputPokemon">
-  <button class="btnInfo" id="btnInfo">BUSCAR</button>
-  <ul id="resultado">
-  </ul>
   `;
 };
 
@@ -69,19 +70,16 @@ const getPokemons = async () => {
 
 export const filterPokemons = () => {
   const cards = document.querySelectorAll(".card")
-  const resultado = document.querySelector("#resultado");
-  resultado.innerHTML = "";
   const text = inputPokemon.value.toLowerCase();
-  for (const filterPok of cards) {
-    console.log(filterPok);
-    if (filterPok.includes(text)){
+  cards.forEach (card => {
+    if (!card.innerHTML.includes(text)){
+      card.style.display = 'none';
     } 
-  }
-  if (resultado.innerHTML === "") {
-    resultado.innerHTML += `
-      <li>Pokemon no encontrado</li>
-      `;
-  }
+    else{
+      card.style.display = 'block';
+    }
+  });
+
 };
 
 
