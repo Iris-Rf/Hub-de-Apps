@@ -22,7 +22,7 @@
     /* width: 70px; */
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
+    margin: 10px;
     float: right;
     /* opacity: 1; */
   }
@@ -59,11 +59,16 @@
     flex-wrap: wrap;
     gap: 3rem;
     margin: 15px;
+    justify-content: center;
+    text-align: center;
   }
 
   .inputPokemon {
     display: flex;
     margin: 15px;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
   }
 
   .btnInfo {
@@ -80,23 +85,35 @@
     margin: 15px;
   }
 
+
   /* .name-pokemon {
     font-size: 1px;
   } */
 
-  /* .containerUser {
+  .containerUser {
     background: url(https://cdn-3.expansion.mx/dims4/default/5fd17a8/2147483647/strip/true/crop/3864x2576+0+0/resize/1200x800!/format/webp/quality/90/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F33%2F38%2F425ea19f487680315036da9ef5f3%2Fistock-1334436084.jpg);
-    margin: 10%;
-    padding: 10%;
+    border-radius: 80%;
+    margin: 5;
+    padding: 5%;
     opacity: .0625rem;
-  } */
+    display: flex;
+    flex-wrap: wrap;
+  }
 
   .name-pokemon {
     font-size: 20px;
     font-weight:  bold;
     padding: 5px;
+    text-transform: uppercase;
   }
 
   h3 {
-    font-size: 17px;
+    font-size: 20px;
+    width: 100%;
   }
+
+  #app {
+    margin: 0;
+    padding: 0;
+  }
+  

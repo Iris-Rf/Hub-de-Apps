@@ -1,3 +1,5 @@
+import "./style.css";
+
 let filtro = [];
 export const pokeapi = async () => {
   const container = document.querySelector("#app");
@@ -55,8 +57,8 @@ const getPokemons = async () => {
       console.log(item);
       const template = `
       <figure class="card">
-      <h2 class="name-pokemon">${item.name} - class=${item.type}</h2>
-      <h3 class"info-pokempm">${item.weight} alt=${item.height}/></h3>
+      <h2 class="name-pokemon">${item.name} - ${item.type}</h2>
+      <h3 class"info-pokempm">${item.weight} ${item.height}</h3>
       <img class="image-pokemon" src="${item.image}"/>
       </figure>
       `;
