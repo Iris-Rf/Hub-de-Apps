@@ -1,4 +1,12 @@
+let filtro = [];
 export const pokeapi = async () => {
+  const container = document.querySelector("#app");
+  container.innerHTML = divPokemon();
+  const botonBuscador = document.querySelector("#btnInfo");
+  botonBuscador.addEventListener("click", filterPokemons);
+  const inputPokemon = document.querySelector("#inputPokemon");
+  inputPokemon.addEventListener("keyup", filterPokemons);
+  filterPokemons();
   getPokemons();
 };
 
@@ -7,24 +15,10 @@ export const divPokemon = () => {
   <div class="containerPokemon" id="containerPokemon"></div>
   <input type="text" id="inputPokemon" class="inputPokemon">
   <button class="btnInfo" id="btnInfo">BUSCAR</button>
-  `
+  <ul id="resultado">
+  </ul>
+  `;
 };
-
-// const buscador = document.querySelector("#inputPokemon");
-// const botonBuscador = document.querySelector("#btnInfo");
-
-// const filterPokemons = () => {
-//   // console.log(inputPokemon.value);
-//   const text = inputPokemon.value.toLowerCase();
-//   for (const pokemon of pokemons) {
-//     let name = pokemon.name.toLowerCase();
-//     if (name.indexOf !== -1)
-//   }
-  
-// }
-// botonBuscador.addEventListener("click", filterPokemons);
-// filterPokemons();
-
 
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -37,43 +31,61 @@ const getPokemons = async () => {
       pokemons.push(dataJson);
     }
     transformData(pokemons);
-    
   } catch (error) {
     console.log(error);
   }
-
+  
   function transformData(list) {
-    const mappedPokemons = list.map((item) => ({
+    filtro = list.map((item) => ({
       image: item.sprites.other.home.front_default,
       name: item.name,
       type: item.types[0].type.name,
       weight: item.weight,
       height: item.height,
     }));
-    printPokemos(mappedPokemons);
-    // console.log(mappedPokemons);
+    console.log(filtro);
+    printPokemos(filtro);
+   
   }
 
   function printPokemos(list) {
-    const container = document.querySelector("#app");
-    // cleanP
-    container.innerHTML = divPokemon();
+    const box = document.querySelector("#containerPokemon");
     for (const item of list) {
       console.log(item);
       const template = `
-      <figure>
-      <h2 class="name-pokemon">${item.name} - ${item.type}</h2>
-      <h3 class"info-pokempm">${item.weight} alt=${item.height}/></sh3>
+      <figure class="card">
+      <h2 class="name-pokemon">${item.name} - class=${item.type}</h2>
+      <h3 class"info-pokempm">${item.weight} alt=${item.height}/></h3>
       <img class="image-pokemon" src="${item.image}"/>
       </figure>
       `;
-      const box = document.querySelector("#containerPokemon");
       box.innerHTML += template;
-    }
-  
+     
+   
+   }
+   container.appendChild(box);
   }
-
 };
+
+export const filterPokemons = () => {
+  const cards = document.querySelectorAll(".card")
+  const resultado = document.querySelector("#resultado");
+  resultado.innerHTML = "";
+  const text = inputPokemon.value.toLowerCase();
+  for (const filterPok of cards) {
+    console.log(filterPok);
+    if (filterPok.includes(text)){
+    } 
+  }
+  if (resultado.innerHTML === "") {
+    resultado.innerHTML += `
+      <li>Pokemon no encontrado</li>
+      `;
+  }
+};
+
+
+
 // const getPokemons = async (number = 151) => {
 //   let pokemons = [];
 //   for (let i = 1; i <= number; i++) {
