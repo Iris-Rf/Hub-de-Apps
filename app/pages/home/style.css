@@ -56,4 +56,24 @@
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
+    margin: 15px;
+  }
+
+  .inputPokemon {
+    display: flex;
+    margin: 15px;
+  }
+
+  .btnInfo {
+    display: flex;
+    border-radius: 30px;
+    background-color: #7f6f6f;
+    border: rgb(10, 10, 11);
+    color: #FFFFFF;
+    font-size: 15Px;
+    padding: 5px;
+    width: 70px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 15px;
   }

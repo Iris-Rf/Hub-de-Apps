@@ -5,8 +5,26 @@ export const pokeapi = async () => {
 export const divPokemon = () => {
   return `
   <div class="containerPokemon" id="containerPokemon"></div>
+  <input type="text" id="inputPokemon" class="inputPokemon">
+  <button class="btnInfo" id="btnInfo">BUSCAR</button>
   `
 };
+
+// const buscador = document.querySelector("#inputPokemon");
+// const botonBuscador = document.querySelector("#btnInfo");
+
+// const filterPokemons = () => {
+//   // console.log(inputPokemon.value);
+//   const text = inputPokemon.value.toLowerCase();
+//   for (const pokemon of pokemons) {
+//     let name = pokemon.name.toLowerCase();
+//     if (name.indexOf !== -1)
+//   }
+  
+// }
+// botonBuscador.addEventListener("click", filterPokemons);
+// filterPokemons();
+
 
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 
