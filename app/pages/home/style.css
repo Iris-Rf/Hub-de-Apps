@@ -27,10 +27,33 @@
     /* opacity: 1; */
   }
 
+  figure {
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+    padding: 2px;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+
+  }
+
+
   #pokedex {
     background: url(https://www.nintenderos.com/wp-content/uploads/2022/07/pikachu-pokemon-logo...jpg);
     width: 300px;
     height: 300px;
     margin: 20px;
     display: flex;
+  }
+
+  .image-pokemon {
+    width: 150px;
+    height: 150px;
+  }
+
+  .containerPokemon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
   }

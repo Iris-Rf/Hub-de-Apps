@@ -1,25 +1,25 @@
 export const pokeapi = async () => {
-  //   const name = getUser();
-  //   console.log(name);
-  const app = document.querySelector("#app");
-  app.innerHTML = `
-      <p class="saludo">POKEAPI</p>
-      `;
-      const pokemons = await getPokemons();
+  getPokemons();
+};
+
+export const divPokemon = () => {
+  return `
+  <div class="containerPokemon" id="containerPokemon"></div>
+  `
 };
 
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 
-const getPokemons = async (number = 151) => {
+const getPokemons = async () => {
   try {
     let pokemons = [];
-    for (let i = 1; i <= number; i++) {
+    for (let i = 1; i < 152; i++) {
       const response = await fetch(`${baseURL}${i}`);
       const dataJson = await response.json();
       pokemons.push(dataJson);
     }
     transformData(pokemons);
-    return pokemons;
+    
   } catch (error) {
     console.log(error);
   }
@@ -33,26 +33,28 @@ const getPokemons = async (number = 151) => {
       height: item.height,
     }));
     printPokemos(mappedPokemons);
-    console.log(mappedPokemons);
+    // console.log(mappedPokemons);
   }
 
   function printPokemos(list) {
     const container = document.querySelector("#app");
+    // cleanP
+    container.innerHTML = divPokemon();
     for (const item of list) {
       console.log(item);
       const template = `
       <figure>
       <h2 class="name-pokemon">${item.name} - ${item.type}</h2>
-      <h3 class"info-pokempm">${item.weight} alt=${item.height}/></h3>
+      <h3 class"info-pokempm">${item.weight} alt=${item.height}/></sh3>
       <img class="image-pokemon" src="${item.image}"/>
       </figure>
       `;
-      container.innerHTML += template;
+      const box = document.querySelector("#containerPokemon");
+      box.innerHTML += template;
     }
-    return pokemons;
+  
   }
 
-  getPokemons();
 };
 // const getPokemons = async (number = 151) => {
 //   let pokemons = [];

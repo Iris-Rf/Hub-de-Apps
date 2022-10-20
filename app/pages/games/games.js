@@ -15,7 +15,6 @@ export const btnPokedex = () => {
   const btnPoke = document.createElement("button");
   btnPoke.innerText = "PokeAPI";
   btnPoke.id = "pokedex";
-  btnPoke.class = "btnpoke";
   const body = document.querySelector("body");
   body.appendChild(btnPoke);
   btnPoke.addEventListener("click", pokeapi);
