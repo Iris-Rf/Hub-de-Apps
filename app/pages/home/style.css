@@ -10,7 +10,7 @@
 
 }
 
-.themeBtn {
+#themeBtn {
     display: flex;
     border-radius: 30px;
     background-color: #ebebeb;
@@ -19,10 +19,18 @@
     text-align: center;
     font-size: 20Px;
     padding: 2.6px;
-    width: 70px;
+    /* width: 70px; */
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
     float: right;
     /* opacity: 1; */
+  }
+
+  #pokedex {
+    background: url(https://www.nintenderos.com/wp-content/uploads/2022/07/pikachu-pokemon-logo...jpg);
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    display: flex;
   }

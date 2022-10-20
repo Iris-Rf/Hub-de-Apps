@@ -42,9 +42,9 @@ const getPokemons = async (number = 151) => {
       console.log(item);
       const template = `
       <figure>
-      <h2>${item.name} - ${item.type}</h2>
-      <h3>${item.weight} alt=${item.height}/></h3>
-      <img src="${item.image}"/>
+      <h2 class="name-pokemon">${item.name} - ${item.type}</h2>
+      <h3 class"info-pokempm">${item.weight} alt=${item.height}/></h3>
+      <img class="image-pokemon" src="${item.image}"/>
       </figure>
       `;
       container.innerHTML += template;
