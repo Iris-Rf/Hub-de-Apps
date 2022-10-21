@@ -1,12 +1,12 @@
+import { cleanPage } from "../../utils/cleanPage";
 import "./pokeapi.css";
 
 let filtro = [];
 export const pokeapi = async () => {
   const container = document.querySelector("#app");
   container.innerHTML = divPokemon();
-  const botonBuscador = document.querySelector("#btnInfo");
-  botonBuscador.addEventListener("click", filterPokemons);
   const inputPokemon = document.querySelector("#inputPokemon");
+  inputPokemon.addEventListener("input", filterPokemons);
   filterPokemons();
   getPokemons();
 };
@@ -14,8 +14,8 @@ export const pokeapi = async () => {
 export const divPokemon = () => {
   return `
   <div class="buscador">
+    <label class="labelInfo" id="labelInfo">BUSCADOR</label>
     <input type="text" id="inputPokemon" class="inputPokemon">
-    <button class="btnInfo" id="btnInfo">BUSCAR</button>
     <ul id="resultado">
     </ul>
     </div>
@@ -25,6 +25,8 @@ export const divPokemon = () => {
 
 const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 
+let guardarPokemons = [];
+
 const getPokemons = async () => {
   try {
     let pokemons = [];
@@ -32,99 +34,56 @@ const getPokemons = async () => {
       const response = await fetch(`${baseURL}${i}`);
       const dataJson = await response.json();
       pokemons.push(dataJson);
+      guardarPokemons.push(dataJson);
     }
     transformData(pokemons);
   } catch (error) {
-    // console.log(error);
-  }
-  
-  function transformData(list) {
-    filtro = list.map((item) => ({
-      image: item.sprites.other.home.front_default,
-      name: item.name,
-      type: item.types[0].type.name,
-      weight: item.weight,
-      height: item.height,
-    }));
-    console.log(filtro);
-    printPokemos(filtro);
-   
   }
 
-  function printPokemos(list) {
-    const box = document.querySelector("#containerPokemon");
-    for (const item of list) {
-      console.log(item);
-      const template = `
-      <figure class="card">
-      <h2 class="name-pokemon">${item.name}</h2>
-      <img class="image-pokemon" src="${item.image}"/>
-      <h3 class"info-pokempm">Weight: ${item.weight}</h3>
-      <h3 class"info-pokempm">Height: ${item.height}</h3>
-      <h2 class="type-pokemon">${item.type}</h2>
-      </figure>
-      `;
-      box.innerHTML += template;
-     
-   
-   }
-   container.appendChild(box);
-  }
 };
+
+export const transformData = (list) =>{
+  //guardar mapeo en filtro
+  filtro = list.map((item) => ({
+    image: item.sprites.other.home.front_default,
+    name: item.name,
+    type: item.types[0].type.name,
+    weight: item.weight,
+    height: item.height,
+  }));
+
+  printPokemos(filtro);
+}
+
+export const  printPokemos = (list) => {
+  const box = document.querySelector("#containerPokemon");
+  for (const item of list) {
+    const template = `
+    <figure class="card">
+    <h2 class="name-pokemon">${item.name}</h2>
+    <img class="image-pokemon" src="${item.image}"/>
+    <h3 class"info-pokempm">Weight: ${item.weight}</h3>
+    <h3 class"info-pokempm">Height: ${item.height}</h3>
+    <h2 class="type-pokemon">${item.type}</h2>
+    </figure>
+    `;
+    box.innerHTML += template;
+  }
+}
 
 export const filterPokemons = () => {
-  const cards = document.querySelectorAll(".card")
-  const text = inputPokemon.value.toLowerCase();
-  cards.forEach (card => {
-    if (!card.innerHTML.includes(text)){
-      card.style.display = 'none';
-    } 
-    else{
-      card.style.display = 'block';
-    }
-  });
 
+const text = inputPokemon.value.toLowerCase();
+const box = document.querySelector("#containerPokemon");
+cleanPage(box);
+// guarda los resultados que se incluyen en el listado filtrado
+let resultadoGuardar = [];
+console.log(guardarPokemons);
+guardarPokemons.forEach((param) => {
+  if (param.name.includes(text)) {
+    resultadoGuardar.push(param);
+  }
+});
+transformData(resultadoGuardar);
 };
 
-
-
-// const getPokemons = async (number = 151) => {
-//   let pokemons = [];
-//   for (let i = 1; i <= number; i++) {
-//     const response = await fetch(`${baseURL}/${i}`);
-//     pokemons.push(await response.json());
-
-// dsp del mappeo
-// const template = `
-// <figure>
-// <h2>${item.name} - ${item.type}</h2>
-// <h3>${item.weight} alt=${item.height}/></h3>
-// <img src=${item.sprites.other.home.front_default}/>
-// </figure>
-// `;
-// container.innerHTML += template;
-
-// const getPokemons = async (number = 151) => {
-//       const item = list[i];
-//       const template = `
-//       <figure>
-//       <h2>${item.name} - ${item.type}</h2>
-//       <h3>${item.weight} alt=${item.height}/></h3>
-//       <img src=${item.sprites.other.home.front_default}/>
-//       </figure>
-//       `;
-//       container.innerHTML += template;
-//     }
-//   };
-
-//   getPokemons();
-
-// const getPokemons = async (number = 151) => {
-//     let pokemons = []
-//     for (let i = 1; i <= number; i++) {
-//         const response = await fetch(`${baseURL}/${i}`)
-//         pokemons.push(await response.json())
-//     }
-
-//     return pokemons
-// }

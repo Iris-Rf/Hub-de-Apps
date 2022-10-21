@@ -107,22 +107,6 @@
   margin: 0;
 }
 
-.name-pokemon {
-  font-size: 20px;
-  font-weight: bold;
-  padding: 5px;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.type-pokemon {
-  text-transform: uppercase;
-  font-weight: bold;
-  padding: 2px;
-}
-
 h3 {
   font-size: 12px;
   width: 100%;
