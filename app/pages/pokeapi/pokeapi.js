@@ -1,4 +1,4 @@
-import "./style.css";
+import "./pokeapi.css";
 
 let filtro = [];
 export const pokeapi = async () => {
@@ -13,7 +13,7 @@ export const pokeapi = async () => {
 
 export const divPokemon = () => {
   return `
-  <div>
+  <div class="buscador">
     <input type="text" id="inputPokemon" class="inputPokemon">
     <button class="btnInfo" id="btnInfo">BUSCAR</button>
     <ul id="resultado">
@@ -35,7 +35,7 @@ const getPokemons = async () => {
     }
     transformData(pokemons);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
   
   function transformData(list) {
@@ -57,9 +57,11 @@ const getPokemons = async () => {
       console.log(item);
       const template = `
       <figure class="card">
-      <h2 class="name-pokemon">${item.name} - ${item.type}</h2>
-      <h3 class"info-pokempm">${item.weight} ${item.height}</h3>
+      <h2 class="name-pokemon">${item.name}</h2>
       <img class="image-pokemon" src="${item.image}"/>
+      <h3 class"info-pokempm">Weight: ${item.weight}</h3>
+      <h3 class"info-pokempm">Height: ${item.height}</h3>
+      <h2 class="type-pokemon">${item.type}</h2>
       </figure>
       `;
       box.innerHTML += template;

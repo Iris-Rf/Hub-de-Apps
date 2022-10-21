@@ -1,0 +1,8 @@
+#tresEnRaya {
+background-color: aqua;
+display: flex;
+}
+
+button {
+    all: unset;
+  }

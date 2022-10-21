@@ -1,5 +1,6 @@
-import { games } from "../games/games";
-import './style.css';
+import './home.css';
+import { games} from "../games/games";
+
 
 export const home = () => {
   const app = document.querySelector("#app");
@@ -16,7 +17,6 @@ export const home = () => {
   const localUserName = (userName) => {
     localStorage.setItem("name", userName);
     games();
-    
   };
 
   const btnUserName = document.querySelector("#btnUserName");
