@@ -6,6 +6,8 @@
     margin-top: 30px;
     padding: 47px;
     color: aliceblue;
+    text-shadow: 2px 0 #fff, -2px 0 rgb(51, 48, 48), 0 2px #fff, 0 -2px #fff,
+    1px 1px rgb(18, 13, 13), -1px -1px rgb(17, 13, 13), 1px -1px rgb(20, 19, 19), -1px 1px rgb(30, 27, 27);
     
 
 }

@@ -14,7 +14,9 @@ export const pokeapi = async () => {
 export const divPokemon = () => {
   return `
   <div class="buscador">
+    <div class="label">
     <label class="labelInfo" id="labelInfo">BUSCADOR</label>
+    </div>
     <input type="text" id="inputPokemon" class="inputPokemon">
     <ul id="resultado">
     </ul>
@@ -35,6 +37,7 @@ const getPokemons = async () => {
       const dataJson = await response.json();
       pokemons.push(dataJson);
       guardarPokemons.push(dataJson);
+
     }
     transformData(pokemons);
   } catch (error) {

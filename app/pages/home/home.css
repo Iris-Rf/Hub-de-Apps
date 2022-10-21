@@ -64,17 +64,21 @@
   display: flex;
   flex-wrap: wrap;
   gap: 3rem;
-  margin: 15px;
+  margin: 30px;
   justify-content: center;
   text-align: center;
 }
 
 .inputPokemon {
-  display: flex;
-  margin: 15px;
-  justify-content: center;
-  text-align: center;
-  flex-wrap: wrap;
+  color: aqua;
+  font-weight: bold;
+  /* display: flex; */
+ font-variant-position: super;
+  width: 160px;
+  height: 143px;
+  margin: 10px;
+  padding: 50px;
+  background: url(https://res.cloudinary.com/dpq2gujpb/image/upload/v1666391884/lupa_hxlqnw.png) no-repeat;
 }
 
 .btnInfo {
@@ -99,12 +103,14 @@
   background-position: left top;
   background-size: cover;
   border-radius: 500%;
-  width: auto;
+  max-width: 900px;
   padding: 5%;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  margin: 0;
+  justify-content: center;
+  margin-inline-end: 30px;
+
 }
 
 h3 {
