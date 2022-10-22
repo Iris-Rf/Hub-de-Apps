@@ -1,16 +1,21 @@
 import { cleanPage } from "../../utils/cleanPage";
-
 import "./pokeapi.css";
+
 let optionsSelectPoke = [];
 let filtro = [];
+let selectPoke = new Array();
+
 export const pokeapi = async () => {
   const container = document.querySelector("#app");
   container.innerHTML = divPokemon();
   const inputPokemon = document.querySelector("#inputPokemon");
   inputPokemon.addEventListener("input", filterPokemons);
   await getPokemons();
-  getSelectOptions();
-  filterPokemons();
+ await  getSelectOptions();
+ await  filterPokemons();
+  const containerOptions = document.getElementById("selectPokemon");
+  containerOptions.addEventListener("change", async(event)=>{
+  await filterTypeOptions(event.target.value)})
 };
 
 // <label for="labelSelect">Pokemon type</label>
@@ -32,7 +37,7 @@ const baseURL = "https://pokeapi.co/api/v2/pokemon/";
 
 let guardarPokemons = [];
 
-const getPokemons = async () => {
+const getPokemons = async() => {
   try {
     let pokemons = [];
     for (let i = 1; i < 152; i++) {
@@ -41,11 +46,11 @@ const getPokemons = async () => {
       pokemons.push(dataJson);
       guardarPokemons.push(dataJson);
     }
-    transformData(pokemons);
+    await transformData(pokemons);
   } catch (error) {}
 };
 
-export const transformData = (list) => {
+export const transformData = async(list) => {
   //guardar mapeo en filtro
   filtro = list.map((item) => ({
     image: item.sprites.other.home.front_default,
@@ -55,14 +60,11 @@ export const transformData = (list) => {
     height: item.height,
   }));
 
-  let selectPoke = new Array();
   selectPoke = filtro.map((item) => item.type);
   const setTypes = new Set(selectPoke);
   selectPoke = Array.from(setTypes);
-  optionsSelectPoke = selectPoke;
-  console.log(optionsSelectPoke);
+  optionsSelectPoke = await filtro;
   printPokemos(filtro);
-  return optionsSelectPoke;
 };
 
 export const printPokemos = (list) => {
@@ -81,7 +83,7 @@ export const printPokemos = (list) => {
   }
 };
 
-export const filterPokemons = () => {
+export const filterPokemons = async() => {
   const text = inputPokemon.value.toLowerCase();
   const box = document.querySelector("#containerPokemon");
   cleanPage(box);
@@ -98,36 +100,33 @@ export const filterPokemons = () => {
 
 // FILTRO POR TIPO
 
-// export const getSelect = async () => {
-//   try {
-//       const response = await fetch(`https://pokeapi.co/api/v2/type/`);
-//       const dataJson = await response.json();
-//       console.log(dataJson);
-//       transformDt(dataJson);
-
-//     }
-//    catch (error) {}
-// };
-
-export const getSelectOptions = ()=> {
+export const getSelectOptions = () => {
   const containerOptions = document.getElementById("selectPokemon");
-  // console.log(containerOptions);
-  console.log(optionsSelectPoke);
-  // for (const types of selectPoke) {
-  //   console.log(types);
-  //   containerOptions.innerText += printPokemosSelect(types);
-  // }
-  // selectPoke = transformData();
-  optionsSelectPoke.forEach((type) => {
-    console.log("hola");
-    console.log(type);
+
+  selectPoke.forEach((type) => {
     containerOptions.innerHTML += templetaOptionsSelect(type);
   });
-}
+};
 
-export let filterTypeOptions = () => {
-  selectPokemon
-} 
+export let filterTypeOptions = async(optionValue) => {
+  let filteredTypePokemon = optionsSelectPoke.filter((param) => param.type === optionValue);
+  console.log();
+  const box = document.querySelector("#containerPokemon");
+  box.innerHTML = "";
+  filteredTypePokemon.forEach((item) => {
+    const template = `
+  <figure class="card">
+  <h2 class="name-pokemon">${item.name}</h2>
+  <img class="image-pokemon" src="${item.image}"/>
+  <h3 class"info-pokempm">Weight: ${item.weight}</h3>
+  <h3 class"info-pokempm">Height: ${item.height}</h3>
+  <h2 class="type-pokemon">${item.type}</h2>
+  </figure>
+  `;
+    box.innerHTML += template;
+  });
+};
+filterTypeOptions();
 
 export const templetaOptionsSelect = (item) => {
   return `

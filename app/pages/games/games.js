@@ -4,7 +4,6 @@ import "./games.css";
 
 export const games = () => {
   const name = getUser();
-  console.log(name);
   const app = document.querySelector("#app");
   app.classList.add("divContainerGames")
   app.innerHTML = `
