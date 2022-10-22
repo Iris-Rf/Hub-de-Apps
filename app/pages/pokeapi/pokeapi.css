@@ -57,3 +57,63 @@ figure:hover {
   background-color: aliceblue;
   padding: .1875rem;
 }
+
+#pokedex {
+  background: url(https://res.cloudinary.com/dpq2gujpb/image/upload/v1666361116/imagen-pokemon-home-0ori_d0y2x9.png) no-repeat;
+  width: 240px;
+  height: 240px;
+  margin: 20px;
+  display: flex;
+  padding-inline-start: 60px;
+}
+
+.image-pokemon {
+  width: 130px;
+  height: 130px;
+  background-color: black;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.containerPokemon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin: 30px;
+  justify-content: center;
+  text-align: center;
+  margin-top: 200px;;
+}
+
+.inputPokemon {
+  color: aqua;
+  font-weight: bold;
+  /* display: flex; */
+ font-variant-position: super;
+  width: 160px;
+  height: 143px;
+  margin: 10px;
+  padding: 50px;
+  background: url(https://res.cloudinary.com/dpq2gujpb/image/upload/v1666391884/lupa_hxlqnw.png) no-repeat;
+}
+
+.btnInfo {
+  display: flex;
+  border-radius: 30px;
+  background-color: #7f6f6f;
+  border: rgb(10, 10, 11);
+  color: #FFFFFF;
+  font-size: 15Px;
+  padding: 5px;
+  width: 70px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 15px;
+}
+
+
+
+
