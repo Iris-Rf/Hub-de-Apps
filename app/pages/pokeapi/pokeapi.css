@@ -51,7 +51,7 @@ figure:hover {
   margin-top: 30px;
   width: 15px;
   height: 10px;
-  }
+}
 
 .labelInfo {
   background-color: aliceblue;
@@ -85,15 +85,17 @@ figure:hover {
   margin: 30px;
   justify-content: center;
   text-align: center;
-  margin-top: 200px;;
+  margin-top: 200px;
+  ;
 }
 
 .inputPokemon {
   color: aqua;
-  font-weight: bold;
+  font-weight: bold 2px;
   /* display: flex; */
- font-variant-position: super;
-  width: 160px;
+  font-variant-position: super;
+  transition: all 0.5s ease ease-out;
+  width: 150px;
   height: 143px;
   margin: 10px;
   padding: 50px;
@@ -113,7 +115,3 @@ figure:hover {
   cursor: pointer;
   margin: 15px;
 }
-
-
-
-
