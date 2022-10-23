@@ -89,18 +89,16 @@ figure:hover {
   ;
 }
 
-.inputPokemon {
-  font-size: 30px; text-shadow: -10px -5px 3px #ffff3f,   -15px -10px 5px #42dd36, -20px -15px 7px #dd7c31;
-  font-weight: bold 5px;
+.infokemon {
+  font-size: 77px; text-shadow: -10px -5px 3px #4321bf,   -15px -10px 5px #42dd36, -20px -15px 7px #dd7c31;
+  font-weight: bold 2px;
   /* display: flex; */
-  border-radius: 100%;
   font-variant-position: super;
   transition: all 0.5s ease ease-out;
   width: 150px;
   height: 143px;
   margin: 10px;
   padding: 50px;
-  box-shadow: 10px 5px 5px black;
   background: url(https://res.cloudinary.com/dpq2gujpb/image/upload/v1666391884/lupa_hxlqnw.png) no-repeat;
 }
 
