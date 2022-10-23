@@ -22,7 +22,7 @@
 
 figure {
   width: 200px;
-  background-color: aliceblue;
+  background-color: rgba(240, 248, 255, 0.84);
   display: flex;
   flex-wrap: wrap;
   box-shadow: 10px 5px 5px black;
@@ -55,7 +55,10 @@ figure:hover {
 
 .labelInfo {
   background-color: aliceblue;
+  border-radius: 30%;
   padding: .1875rem;
+  font-weight: 5px bold;
+
 }
 
 #pokedex {
@@ -90,7 +93,7 @@ figure:hover {
 }
 
 .inputPokemon {
-  font-size: 30px; text-shadow: -10px -5px 3px #ffff3f,   -15px -10px 5px #42dd36, -20px -15px 7px #dd7c31;
+  font-size: 30px; text-shadow: -10px -5px 3px #1c1a1a,   -15px -10px 6px #ffffff, -20px -15px 7px #c05b0d;
   font-weight: bold 5px;
   /* display: flex; */
   border-radius: 100%;
@@ -116,4 +119,15 @@ figure:hover {
   transition: all 0.5s;
   cursor: pointer;
   margin: 15px;
+}
+
+.selectPokemon {
+  background: rgba(13, 13, 13, 0.87);
+  border: 1px solid;
+  border-radius: 5px 5px 5px 5px;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 5px;
+  text-transform: uppercase;
+
 }

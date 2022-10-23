@@ -1,6 +1,6 @@
 .saludo {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 30px;
+    font-size: 50px;
     justify-content: center;
     text-align: center;
     margin-top: 30px;
@@ -8,7 +8,7 @@
     color: aliceblue;
     text-shadow: 2px 0 #fff, -2px 0 rgb(51, 48, 48), 0 2px #fff, 0 -2px #fff,
     1px 1px rgb(18, 13, 13), -1px -1px rgb(17, 13, 13), 1px -1px rgb(20, 19, 19), -1px 1px rgb(30, 27, 27);
-    
+    text-decoration:overline
 
 }
 

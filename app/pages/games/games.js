@@ -1,4 +1,5 @@
 import { getUser } from "../../utils/getUser";
+import { home } from "../home/home";
 import { pokeapi } from "../pokeapi/pokeapi";
 import { quiz } from "../quiz/quiz";
 import "./games.css";
@@ -12,6 +13,7 @@ export const games = () => {
     `;
     btnPokedex();
     btnQuizGames();
+    menuClick();
   };
 
 export const btnPokedex = () => {
@@ -33,6 +35,4 @@ export const btnQuizGames = () => {
   app.appendChild(btnQuiz);
   btnQuiz.addEventListener("click", quiz);
 };
-
-
 
