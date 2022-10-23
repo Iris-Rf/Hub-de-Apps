@@ -1,12 +1,15 @@
-export const tresEnRaya = async () => {
+import "./quiz.css";
+
+export const quiz = async () => {
     const container = document.querySelector("#app");
     app.innerHTML = `
     <div>
-        <p>HOLA</p>
+        <p class="saludo">QUIZ GAMES</p>
     </div>
     `;
+    quiz();
   };
 
-  tresEnRaya();
+
 
   

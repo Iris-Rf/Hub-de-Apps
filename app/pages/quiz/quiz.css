@@ -1,0 +1,11 @@
+#quiz {
+  background: url(https://res.cloudinary.com/dpq2gujpb/image/upload/v1666520094/quiz_yfkl5h.png);
+  width: 240px;
+  height: 240px;
+  margin: 20px;
+  display: flex;
+  padding-inline-start: 60px;
+}
+
+
+/* https://res.cloudinary.com/dpq2gujpb/image/upload/v1666519152/quiz_juuh15.png */
