@@ -26,7 +26,7 @@ export const divPokemon = () => {
       <label class="labelInfo" id="labelInfo">SEARCH</label>
     </div>
       <input type="text" id="inputPokemon" class="inputPokemon">
-      <select id="selectPokemon" class="selectPokemon" name="selectPokemon>
+      <select id="selectPokemon" class="selectPokemon" name="PUTOTYPES">
       </select>
     </div>
   <div class="containerPokemon" id="containerPokemon"></div>
