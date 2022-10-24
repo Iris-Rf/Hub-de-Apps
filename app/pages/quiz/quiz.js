@@ -140,26 +140,26 @@ const question = [
 ]
 
 
-//     function printTest () {
-//     const questionsAnswers = [];
+    function printTest () {
+    const questionsAnswers = [];
 
-//     questions.forEach((questionCurrent, numQuestions) => {
-//         const result = [];
-//         for (answerLetter in questionCurrent.result){
-//             result.push(`
-//             <label>
-//                 <input type="radio" name="${numQuestions}" value="${answerLetter}"/> 
-//                 ${answerLetter} : ${questionCurrent.result[answerLetter]}
-//             </label>
-//             `
-//             );
-//         }
-//         questionsAnswers.push(`
-//         <div class="question">${questionCurrent.question}</div>
-//         <div class="result">${result.join("")}</div>
-//         `
+    questions.forEach((questionCurrent, numQuestions) => {
+        
+        for (answerLetter in questionCurrent.result){
+            result.push(`
+            <label>
+                <input type="radio" name="${numQuestions}" value="${answerLetter}"/> 
+                ${answerLetter} : ${questionCurrent.result[answerLetter]}
+            </label>
+            `
+            );
+        }
+        questionsAnswers.push(`
+        <div class="question">${questionCurrent.question}</div>
+        <div class="result">${result.join("")}</div>
+        `
 
-//         );
-//     })
-//     container.innerHTML = questionsAnswers.join("");
-// }
+        );
+    })
+    container.innerHTML = questionsAnswers.join("");
+}
